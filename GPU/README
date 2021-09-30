@@ -1,0 +1,4 @@
+```
+make
+./main [TRAIN dataset path] [TEST dataset path] [DIM] [ITER] [Learning Rate] [Q]
+```
