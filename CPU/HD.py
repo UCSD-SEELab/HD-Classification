@@ -9,7 +9,7 @@ from sklearn.neighbors import KNeighborsClassifier as KNN
 
 
 def binarize(base_matrix):
-	return np.where(base_matrix < 0, 0, 1)
+	return np.where(base_matrix < 0, -1, 1)
 
 def encoding_rp(X_data, base_matrix, signed=False):
 	enc_hvs = []
