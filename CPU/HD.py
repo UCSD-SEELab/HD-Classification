@@ -33,7 +33,8 @@ def encoding_idlv(X_data, lvl_hvs, id_hvs, D, bin_len, x_min, L=64):
 			sys.stdout.flush()
 		sum_ = np.array([0] * D)
 		for j in range(len(X_data[i])):
-			bin_ = min( np.round((X_data[i][j] - x_min)/bin_len), L-1)
+            # bin_ = min( np.round((X_data[i][j] - x_min)/bin_len), L-1)
+			bin_ = min( np.floor((X_data[i][j] - x_min)/bin_len), L-1)
 			bin_ = int(bin_)
 			sum_ += lvl_hvs[bin_]*id_hvs[j]
 		enc_hvs.append(sum_)
@@ -47,7 +48,8 @@ def encoding_perm(X_data, lvl_hvs, D, bin_len, x_min, L=64):
 			sys.stdout.flush()
 		sum_ = np.array([0] * D)
 		for j in range(len(X_data[i])):
-			bin_ = min( np.round((X_data[i][j] - x_min)/bin_len), L-1)
+            # bin_ = min( np.round((X_data[i][j] - x_min)/bin_len), L-1)
+			bin_ = min( np.floor((X_data[i][j] - x_min)/bin_len), L-1)
 			bin_ = int(bin_)
 			sum_ += np.roll(lvl_hvs[bin_], j)
 		enc_hvs.append(sum_)
